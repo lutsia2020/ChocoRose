@@ -1,0 +1,108 @@
+body {
+     background: url("../img/bakery.jpg") no-repeat;
+     margin: 0; /* Убираем отступы */
+     height: 100%; /* Высота страницы */
+     background-size: cover; /* Фон занимает всю доступную площадь */
+}
+
+aside {
+    float: left;
+    widht: 600px;
+    margin-left: 10px;
+    margin-right: 50px;
+    color: black;
+    font-size: 18px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+    padding-right: 10px;
+}
+
+nav div {
+    align-items: center;
+}
+
+
+ul {
+    list-style: none;
+}
+
+nav h1 {
+    padding-left: 90px;
+    padding-top: 140px;
+    font-size: 64px;
+    font-family: "Lucida Calligraphy";
+}
+nav h4 {
+    padding-left: 90px;
+    font-family: "Book Antiqua";
+}
+.btn {
+    position: absolute; /* блок занимает ширину содержимого, max-width её ограничивает */
+    top: 0; /* прикрепить к верху родителя */
+    right: 0;
+}
+.btn:hover {
+    border: solid 2px palevioletred;
+}
+
+aside ul li, aside ul a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-top: 10px;
+    padding:10px 70px;
+    background-color: aliceblue;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+    transition: all .2s ease;
+}
+#aside_first_item{
+    background-color: blueviolet;
+}
+
+aside ul li:hover {
+    background-color: #E1D3E9;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.bakery-image {
+    width: 100%;
+}
+
+.items {
+     display:flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+}
+.bakery-item {
+    display: flex;
+    height: 420px;
+    width: 300px;
+    background-color: darkgray;
+    margin: 15px;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: 15px;
+
+}
+
+.row {
+
+    justify-content:center;
+    align-items: center;
+}
+
+.col-8 {
+    padding: 10px;
+}
+
+.btn-buy {
+   background-color: blueviolet;
+    float: right;
+}

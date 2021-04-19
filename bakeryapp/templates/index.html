@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block tittle %} Главная страница ChocoRose{% endblock %}
+
+{% block content %}
+<div class = "items">
+   {% for ba in bakery_list %}
+      <div class="bakery-item">
+            <div class="row">
+                 <div class="col-8">
+                    {% if ba.image %}
+                     <img class="bakery-image" src="{{ba.image.url}}">
+                    {% endif %}
+                </div>
+                <p align="center"><b >{{ba.name}}</b></p>
+                <p align="center"> Состав: {{ba.text}}</p>
+            </div>
+
+          <div> Вес: {{ba.weight}} гр. <button class="btn-buy">купи</button></div>
+      </div>
+   {% endfor %}
+</div>
+{% endblock %}
