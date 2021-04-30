@@ -12,11 +12,11 @@
     <link rel ="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
-    <a href="admin/" button class="btn"><i class="fas fa-user-lock"></i> Админка</abutton></a>
+    <a href="http://127.0.0.1:8000/admin/" button class="admin_btn"><i class="fas fa-user-lock"></i> Админка</button></a>
     <nav>
         <ul><b>По любым вопросам:</b>
-            <li><i class="fab fa-vk"></i> https://vk.com/rozalina.nurs</li>
-            <li><i class="fab fa-instagram"></i> https://www.instagram.com/roza1inka</li>
+            <li><a href="https://vk.com/rozalina.nurs"><i class="fab fa-vk"></i> https://vk.com/rozalina.nurs</a></li>
+            <li><a href="https://www.instagram.com/roza1inka"><i class="fab fa-instagram"></i> https://www.instagram.com/roza1inka</a></li>
         </ul>
 
         <div><h1>ChocoRose</h1>
@@ -27,30 +27,51 @@
         <ul><b>Контакты:</b>
             <li><i class="fas fa-mobile-alt"></i> 8 (912) 496-97-17</li>
             <li><i class="fas fa-map-marker-alt"></i> г.Пермь, Дзержинский район, ул.Хохрякова,<br> д.86</li>
+
+
+            <form class="input-group" method="POST" action="{%url 'search_view' %}">
+              {% csrf_token%}
+                <div class="form-outline">
+                    <input type="search" placeholder="Поиск" class="form-control" name="searched" >
+                </div>
+                <button type="submit"  class="btn btn-secondary" onclick="getBakery()"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div id="ajax-data"></div>
+
+            <a href="{% url 'create' %}"><button type="button" class="btn btn-secondary btn-circle"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
         </ul>
+
     </nav>
     <aside>
        <ul>
-           <li align="center" id="aside_first_item"><i class="fas fa-birthday-cake"></i> Меню</li>
-           <li align="center">Торты</li>
-           <li align="center">Капкейки</li>
-           <li align="center">Рулеты</li>
-           <li align="center">Кейк-попсы</li>
-           <li align="center">Зефир</li>
-           <li align="center">Маршмеллоу</li>
-           <li align="center">Макарон</li>
-           <li align="center">Шоколад</li>
-           <li align="center">Чизкейк</li>
-           <li align="center">Пирожные</li>
+           <li align="center" id="aside_first_item"><a href="http://127.0.0.1:8000/"><i class="fas fa-birthday-cake"></i> Меню</a></li>
+            {% for category in category_list %}
+           <li align="center"><a href="{% url 'category' category.id %}">{{category.name}}</a></li>
+           {% endfor %}
        </ul>
    </aside>
 
     <main>
     {% block content %}
+
     {% endblock %}
     </main>
-
+     <script>
+         function getBakery(){
+             axios.get('./api/bakeryapp/').then(response => {
+                 console.log(response.data)
+                 let el= document.getElementById('ajax-data')
+                 let template=''
+                 for (let item of response.data){
+                     template +=item.name
+                 }
+                 el.innerHTML=template
+             })
+         }
+     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
 </body>
 </html>

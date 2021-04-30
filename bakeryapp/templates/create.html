@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block tittle %}Добавление выпечки{% endblock %}
+
+{% block content %}
+
+<div>
+    <h4 class="form_name">Форма по добавлению выпечки</h4>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.name}}<br>
+        <span>Выберите тип выпечки:</span>
+        {{form.category}}<br>
+        {{form.text}}<br>
+        {{form.weight}}<br>
+        {{form.price}}<br>
+         <span>Загрузите картинку выпечки:</span>
+        {{form.image}}<br>
+        <span>{{error}}</span>
+         <button class="btn btn-success" type="submit">Сохранить</button>
+    </form>
+</div>
+{% endblock %}

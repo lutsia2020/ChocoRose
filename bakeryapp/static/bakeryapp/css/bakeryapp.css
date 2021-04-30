@@ -41,18 +41,24 @@ nav h4 {
     padding-left: 90px;
     font-family: "Book Antiqua";
 }
-.btn {
-    position: absolute; /* блок занимает ширину содержимого, max-width её ограничивает */
-    top: 0; /* прикрепить к верху родителя */
+.admin_btn {
+    position: absolute;
+    top: 0;
     right: 0;
+    padding: 10px;
+
+
 }
-.btn:hover {
+.admin_btn:hover {
     border: solid 2px palevioletred;
 }
 
-aside ul li, aside ul a{
-    list-style: none;
-    text-decoration: none;
+a {
+    color: Black !important;
+    text-decoration: none !important;
+}
+
+ aside ul li {
     color: black;
     display: block;
     margin-top: 10px;
@@ -82,7 +88,7 @@ aside ul li:hover {
 }
 .bakery-item {
     display: flex;
-    height: 420px;
+    height: 440px;
     width: 300px;
     background-color: darkgray;
     margin: 15px;
@@ -93,7 +99,6 @@ aside ul li:hover {
 }
 
 .row {
-
     justify-content:center;
     align-items: center;
 }
@@ -105,4 +110,79 @@ aside ul li:hover {
 .btn-buy {
    background-color: blueviolet;
     float: right;
+    transition: all .2s ease;
 }
+
+.btn-buy:hover{
+     transform: scale(1.05);
+}
+
+.btn-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    top:250px;
+    width: 38px;
+    height: 38px;
+    border-radius: 25px;
+    text-align: center;
+    margin-right: 30px;
+    font-size: 16px;
+}
+
+form {
+    margin-left: 32%;
+    width: 400px;
+    margin-top: 50px;
+    margin-button: 50px;
+    margin-bottom: 50px;
+
+
+}
+.form_name {
+     margin-left: 32%;
+
+ }
+
+.bakery-row{
+    height: 600px;
+    width: 100%;
+    padding-right: 90px;
+    margin-top:10px;
+
+
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    background-color: darkgray;
+    padding: 30px;
+    font-size: 17px;
+
+}
+
+.div1{
+    width: 300px;
+}
+
+.div2{
+    padding: 50px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.input-group{
+    position: absolute;
+    top:103px;
+    right: 90px;
+    width: 200px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 16px;
+    z-index:0;
+}
+

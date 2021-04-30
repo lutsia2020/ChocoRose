@@ -1,0 +1,22 @@
+
+{% extends 'layout.html' %}
+
+{% block tittle %}Заказ выпечки{% endblock %}
+
+{% block content %}
+
+<div>
+    <h4 class="form_name">Оформление заказа</h4>
+    <form method="post">
+
+        {% csrf_token %}
+        {{form.customer}}<br>
+        {{form.phone}}<br>
+        <p>Тут должна быть возможность опалтить покупку картой:</p>
+        {{bakery.name}}<br>
+        <p>Итого:{{price}}</p><br>
+        <span>{{error}}</span>
+        <button class="btn btn-success" type="submit">Отправить заказ</button>
+    </form>
+</div>
+{% endblock %}

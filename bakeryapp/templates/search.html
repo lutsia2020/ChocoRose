@@ -3,8 +3,11 @@
 {% block tittle %}Главная страница ChocoRose{% endblock %}
 
 {% block content %}
+{% if searched %}
+ <h4>Вы искали: {{searched}}</h4>
+
 <div class = "items">
-   {% for ba in bakery_list %}
+   {% for ba in bakyries %}
       <div class="bakery-item">
             <div class="row">
                  <div class="col-8">
@@ -22,4 +25,7 @@
 
    {% endfor %}
 </div>
+{%else%}
+ <h4>Увы такого не нашли: {{searched}}</h4>
+{%endif %}
 {% endblock %}

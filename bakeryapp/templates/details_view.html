@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block tittle %}Детали выпечки{% endblock %}
+
+{% block content %}
+ <div class="bakery-row">
+     <div class="rows">
+
+                <img class="div1" src="{{bakery.image.url}}">
+            <div class="div2">
+                <div>
+                <p align="center"><b >{{bakery.category}} "{{bakery.name}}"</b></p>
+                <p align="center"><b>Состав: </b> {{bakery.text}}</p>
+                </div>
+                <div>
+                    <p><b>Вес: </b> {{bakery.weight}} гр.</p>
+                    <p><b>Цена:</b> {{bakery.price}} руб.</p>
+                </div>
+                <button class="btn btn-success" type="submit"><a href="{% url 'bakery_order' %}">Отправить заказ</a></button>
+            </div>
+     </div>
+
+</div>
+
+{% endblock %}
